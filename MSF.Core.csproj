@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp2.0;</TargetFrameworks>
+    <AssemblyName>MSF.Core</AssemblyName>
+    <RootNamespace>MSF.Core</RootNamespace>
+    <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp2.0|AnyCPU'">
+    <DocumentationFile>D:\Navaneeth\6.Personnal\Projects\MSF.Core\MSF.Core\MSF.Core.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="packages\**" />
+    <Compile Remove="MSF.Common\**" />
+    <EmbeddedResource Remove="packages\**" />
+    <EmbeddedResource Remove="MSF.Common\**" />
+    <None Remove="packages\**" />
+    <None Remove="MSF.Common\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.1" />
+    <PackageReference Include="Newtonsoft.json" Version="11.0.2" />
+  </ItemGroup>
+
+</Project>
