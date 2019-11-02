@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MSF.Core
+namespace Core.Data
 {
     /// <summary>
     /// Handler for manage the Commits.

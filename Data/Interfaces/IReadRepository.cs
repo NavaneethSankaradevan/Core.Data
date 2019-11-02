@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace MSF.Core
+namespace Core.Data
 {
 
     /// <summary>
     /// Base Repository with Read operations.
     /// </summary>
     public interface IReadRepository<tEntity, tType>
-        where tEntity : class, IBaseEntity<tType>
+        where tEntity : class, IEntity<tType>
         where tType : struct,IEquatable<tType>, IComparable<tType>
     {
         /// <summary>

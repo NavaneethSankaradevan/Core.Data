@@ -2,13 +2,13 @@
 using System;
 using System.Threading.Tasks;
 
-namespace MSF.Core
+namespace Core.Data
 {
     /// <summary>
     /// Base Repository with Write operations.
     /// </summary>
     public interface IWriteRepository<tEntity, tType>
-        where tEntity : class, IBaseEntity<tType>
+        where tEntity : class, IEntity<tType>
         where tType : struct, IEquatable<tType>, IComparable<tType>
     {
 

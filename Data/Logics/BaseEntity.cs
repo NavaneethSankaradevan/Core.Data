@@ -3,13 +3,13 @@ using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace MSF.Core
+namespace Core.Data
 {
 
     /// <summary>
     /// Base class for entity class.
     /// </summary>
-    public abstract class BaseEntity<T> : IBaseEntity<T>
+    public abstract class BaseEntity<T> : IEntity<T>
         where T : struct, IEquatable<T>, IComparable<T>
     {
 
@@ -25,7 +25,7 @@ namespace MSF.Core
         public bool InActive { get; set; }
 
         /// <summary>
-        /// User who made the entity as inactive.
+        /// User who made the entity as In-active.
         /// </summary>
         public string InActiveByUser { get; set; }
 
@@ -39,7 +39,7 @@ namespace MSF.Core
         /// <summary>
         /// Check the Id is null.
         /// </summary>
-        bool IBaseEntity<T>.IsNullOrEmpty(T t)
+        bool IEntity<T>.IsNullOrEmpty(T t)
         {
             return t.Equals(null) || t.Equals(default(T));
         }
@@ -47,7 +47,7 @@ namespace MSF.Core
         /// <summary>
         /// Check the Id is equal to given value.
         /// </summary>
-        bool IBaseEntity<T>.IsEqual(T t)
+        bool IEntity<T>.IsEqual(T t)
         {
             return this.ID.Equals(t);
         }

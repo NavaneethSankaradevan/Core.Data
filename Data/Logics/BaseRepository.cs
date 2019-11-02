@@ -6,13 +6,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace MSF.Core
+namespace Core.Data
 {
     /// <summary>
     /// Base Repository with CRUD operations.
     /// </summary>
-    public abstract class BaseRepository<tEntity, tType> : IBaseRepository<tEntity, tType>
-        where tEntity : class, IBaseEntity<tType>
+    public abstract class BaseRepository<tEntity, tType> : IRepository<tEntity, tType>
+        where tEntity : class, IEntity<tType>
         where tType : struct, IEquatable<tType>, IComparable<tType>
     {
 
@@ -251,17 +251,17 @@ namespace MSF.Core
         /// <param name="user">Modified by</param>
         private void UpdateAuditDetails(tEntity entity, string user)
         {
-            if (typeof(BaseTransactionalEntity<>).GetGenericTypeDefinition() == typeof(tEntity))
+            if (typeof(BaseEntityTrackable<>).GetGenericTypeDefinition() == typeof(tEntity))
             {
                 _logger.LogInformation(" Updating the UpdateOn column");
 
-                (entity as BaseTransactionalEntity<tType>).UpdatedOn = DateTime.UtcNow;
-                (entity as BaseTransactionalEntity<tType>).UpdatedBy = user;
+                (entity as BaseEntityTrackable<tType>).UpdatedOn = DateTime.UtcNow;
+                (entity as BaseEntityTrackable<tType>).UpdatedBy = user;
 
                 if (entity.IsNullOrEmpty(entity.ID))
                 {
-                    (entity as BaseTransactionalEntity<tType>).CreatedOn = DateTime.UtcNow;
-                    (entity as BaseTransactionalEntity<tType>).CreatedBy = user;
+                    (entity as BaseEntityTrackable<tType>).CreatedOn = DateTime.UtcNow;
+                    (entity as BaseEntityTrackable<tType>).CreatedBy = user;
                 }
 
             }

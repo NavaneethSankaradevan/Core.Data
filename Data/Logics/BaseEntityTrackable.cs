@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace MSF.Core
+namespace Core.Data
 {
 
     /// <summary>
     /// Base class for transaction entity class.
     /// </summary>
-    public abstract class BaseTransactionalEntity<T> : BaseEntity<T>, IBaseEntity<T>
+    public abstract class BaseEntityTrackable<T> : BaseEntity<T>, IEntity<T>
         where T : struct, IEquatable<T>, IComparable<T>
     {
 

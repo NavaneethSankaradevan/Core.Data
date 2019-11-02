@@ -1,68 +1,63 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>MSF.Core</name>
+        <name>Core.Data</name>
     </assembly>
     <members>
-        <member name="T:MSF.Core.IBaseEntity`1">
+        <member name="T:Core.Data.IEntity`1">
             <summary>
             Base Entity Model.
             </summary>
         </member>
-        <member name="P:MSF.Core.IBaseEntity`1.ID">
+        <member name="P:Core.Data.IEntity`1.ID">
             <summary>
             Primary key of Entity.
             </summary>
         </member>
-        <member name="P:MSF.Core.IBaseEntity`1.InActive">
+        <member name="P:Core.Data.IEntity`1.InActive">
             <summary>
             Whether the entity is in-active.
             </summary>
         </member>
-        <member name="P:MSF.Core.IBaseEntity`1.InActiveByUser">
+        <member name="P:Core.Data.IEntity`1.InActiveByUser">
             <summary>
             User who made the entity as inactive.
             </summary>
         </member>
-        <member name="P:MSF.Core.IBaseEntity`1.RowVersion">
+        <member name="P:Core.Data.IEntity`1.RowVersion">
             <summary>
             Handle concurrency updation. Updated automatically.
             </summary>        
         </member>
-        <member name="M:MSF.Core.IBaseEntity`1.IsNullOrEmpty(`0)">
+        <member name="M:Core.Data.IEntity`1.IsNullOrEmpty(`0)">
             <summary>
             Check the Id is null.
             </summary> 
         </member>
-        <member name="M:MSF.Core.IBaseEntity`1.IsEqual(`0)">
+        <member name="M:Core.Data.IEntity`1.IsEqual(`0)">
             <summary>
             Compare the ID with another value.
             </summary> 
         </member>
-        <member name="T:MSF.Core.IBaseRepository`2">
-            <summary>
-            Base Repository with CRUD operations.
-            </summary>
-        </member>
-        <member name="T:MSF.Core.IReadRepository`2">
+        <member name="T:Core.Data.IReadRepository`2">
             <summary>
             Base Repository with Read operations.
             </summary>
         </member>
-        <member name="M:MSF.Core.IReadRepository`2.GetAsync(`1)">
+        <member name="M:Core.Data.IReadRepository`2.GetAsync(`1)">
             <summary>
             Get the entity By ID.
             </summary>
             <param name="ID"></param>
             <returns></returns>
         </member>
-        <member name="M:MSF.Core.IReadRepository`2.GetAllAsync">
+        <member name="M:Core.Data.IReadRepository`2.GetAllAsync">
             <summary>
             Get all entities.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:MSF.Core.IReadRepository`2.GetAllPageData(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Int32,System.Int32)">
+        <member name="M:Core.Data.IReadRepository`2.GetAllPageData(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Int32,System.Int32)">
             <summary>
             Get entities for specific page
             </summary>
@@ -71,14 +66,14 @@
             <param name="PageCount">Number of entities need to fetch</param>
             <returns></returns>
         </member>
-        <member name="M:MSF.Core.IReadRepository`2.FindByAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+        <member name="M:Core.Data.IReadRepository`2.FindByAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
             <summary>
             Find entities based on condition
             </summary>
             <param name="predicate">Predicate condition </param>
             <returns>List of entity</returns>
         </member>
-        <member name="M:MSF.Core.IReadRepository`2.FindByWithPagingAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Int32,System.Int32)">
+        <member name="M:Core.Data.IReadRepository`2.FindByWithPagingAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Int32,System.Int32)">
             <summary>
             Get entities for specific page based on contition
             </summary>
@@ -88,54 +83,59 @@
             <param name="PageCount">Number of entities need to fetch</param>
             <returns></returns>
         </member>
-        <member name="T:MSF.Core.IUnitOfWork">
+        <member name="T:Core.Data.IRepository`2">
+            <summary>
+            Base Repository with CRUD operations.
+            </summary>
+        </member>
+        <member name="T:Core.Data.IUnitOfWork">
             <summary>
             Manage commit for each entity.
             </summary>
         </member>
-        <member name="M:MSF.Core.IUnitOfWork.CommitAsync">
+        <member name="M:Core.Data.IUnitOfWork.CommitAsync">
             <summary>
             Commit the current changes in database.
             </summary>
             <returns></returns>
         </member>
-        <member name="P:MSF.Core.IUnitOfWork.DataContext">
+        <member name="P:Core.Data.IUnitOfWork.DataContext">
             <summary>
             Database context object.
             </summary>
         </member>
-        <member name="T:MSF.Core.IWriteRepository`2">
+        <member name="T:Core.Data.IWriteRepository`2">
             <summary>
             Base Repository with Write operations.
             </summary>
         </member>
-        <member name="M:MSF.Core.IWriteRepository`2.SaveAsync(`0)">
+        <member name="M:Core.Data.IWriteRepository`2.SaveAsync(`0)">
             <summary>
             Create new entity or Update existing entity.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:MSF.Core.IWriteRepository`2.SaveAsync(`0,System.String)">
+        <member name="M:Core.Data.IWriteRepository`2.SaveAsync(`0,System.String)">
             <summary>
             Create new entity or Update existing entity with user info.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:MSF.Core.IWriteRepository`2.HardDelete(`1)">
+        <member name="M:Core.Data.IWriteRepository`2.HardDelete(`1)">
             <summary>
             Delete the entity from Database.
             </summary>
             <param name="ID">Entity Id</param>
             <returns></returns>
         </member>
-        <member name="M:MSF.Core.IWriteRepository`2.SoftDelete(`1)">
+        <member name="M:Core.Data.IWriteRepository`2.SoftDelete(`1)">
             <summary>
             Mark the entity is deleted state in Database.
             </summary>
             <param name="ID">Entity Id</param>
             <returns></returns>
         </member>
-        <member name="M:MSF.Core.IWriteRepository`2.SoftDelete(`1,System.String)">
+        <member name="M:Core.Data.IWriteRepository`2.SoftDelete(`1,System.String)">
             <summary>
             Mark the entity is deleted state in Database with user info.
             </summary>
@@ -143,110 +143,110 @@
             <param name="user">Deleted User </param>
             <returns></returns>
         </member>
-        <member name="T:MSF.Core.BaseEntity`1">
+        <member name="T:Core.Data.BaseEntity`1">
             <summary>
             Base class for entity class.
             </summary>
         </member>
-        <member name="P:MSF.Core.BaseEntity`1.ID">
+        <member name="P:Core.Data.BaseEntity`1.ID">
             <summary>
             Primary key field of the object.
             </summary>
         </member>
-        <member name="P:MSF.Core.BaseEntity`1.InActive">
+        <member name="P:Core.Data.BaseEntity`1.InActive">
             <summary>
             Field used to indicate whether the entity is active or not.
             </summary>
         </member>
-        <member name="P:MSF.Core.BaseEntity`1.InActiveByUser">
+        <member name="P:Core.Data.BaseEntity`1.InActiveByUser">
             <summary>
-            User who made the entity as inactive.
+            User who made the entity as In-active.
             </summary>
         </member>
-        <member name="P:MSF.Core.BaseEntity`1.RowVersion">
+        <member name="P:Core.Data.BaseEntity`1.RowVersion">
             <summary>
             Handle concurrency updation. Updated automatically.
             </summary>
         </member>
-        <member name="M:MSF.Core.BaseEntity`1.MSF#Core#IBaseEntity{T}#IsNullOrEmpty(`0)">
+        <member name="M:Core.Data.BaseEntity`1.Core#Data#IEntity{T}#IsNullOrEmpty(`0)">
             <summary>
             Check the Id is null.
             </summary>
         </member>
-        <member name="M:MSF.Core.BaseEntity`1.MSF#Core#IBaseEntity{T}#IsEqual(`0)">
+        <member name="M:Core.Data.BaseEntity`1.Core#Data#IEntity{T}#IsEqual(`0)">
             <summary>
             Check the Id is equal to given value.
             </summary>
         </member>
-        <member name="T:MSF.Core.BaseRepository`2">
+        <member name="T:Core.Data.BaseEntityTrackable`1">
+            <summary>
+            Base class for transaction entity class.
+            </summary>
+        </member>
+        <member name="P:Core.Data.BaseEntityTrackable`1.CreatedBy">
+            <summary>
+            Created by user. This is string type since the default Id type of Micorsoft's IdentityUser is string.
+            </summary>
+        </member>
+        <member name="P:Core.Data.BaseEntityTrackable`1.CreatedOn">
+            <summary>
+            Created date, Automatically updated.
+            </summary>
+        </member>
+        <member name="P:Core.Data.BaseEntityTrackable`1.UpdatedBy">
+            <summary>
+            Updated by user. This is string type since the default Id type of Micorsoft's IdentityUser is string.
+            </summary>
+        </member>
+        <member name="P:Core.Data.BaseEntityTrackable`1.UpdatedOn">
+            <summary>
+            Last Updated date, Automatically updated.
+            </summary>
+        </member>
+        <member name="T:Core.Data.BaseRepository`2">
             <summary>
             Base Repository with CRUD operations.
             </summary>
         </member>
-        <member name="P:MSF.Core.BaseRepository`2.DataContext">
+        <member name="P:Core.Data.BaseRepository`2.DataContext">
             <summary>
             Data Context.
             </summary>
         </member>
-        <member name="P:MSF.Core.BaseRepository`2.Entity">
+        <member name="P:Core.Data.BaseRepository`2.Entity">
             <summary>
             Current Entity.
             </summary>
         </member>
-        <member name="P:MSF.Core.BaseRepository`2.AutoCommitEnabled">
+        <member name="P:Core.Data.BaseRepository`2.AutoCommitEnabled">
             <summary>
             Is auto commit enabled.
             </summary>
         </member>
-        <member name="M:MSF.Core.BaseRepository`2.#ctor(MSF.Core.IUnitOfWork)">
+        <member name="M:Core.Data.BaseRepository`2.#ctor(Core.Data.IUnitOfWork)">
             <summary>
             Base Repository.
             </summary>
         </member>
-        <member name="M:MSF.Core.BaseRepository`2.GetEntitySet(System.Boolean)">
+        <member name="M:Core.Data.BaseRepository`2.GetEntitySet(System.Boolean)">
             <summary>
             Virtual method to override the entity with include the dependencies.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:MSF.Core.BaseRepository`2.UpdateAuditDetails(`0,System.String)">
+        <member name="M:Core.Data.BaseRepository`2.UpdateAuditDetails(`0,System.String)">
             <summary>
             Update the DateTime fields for Transaction entities.
             </summary>
             <param name="entity"></param>
             <param name="user">Modified by</param>
         </member>
-        <member name="T:MSF.Core.BaseTransactionalEntity`1">
-            <summary>
-            Base class for transaction entity class.
-            </summary>
-        </member>
-        <member name="P:MSF.Core.BaseTransactionalEntity`1.CreatedBy">
-            <summary>
-            Created by user. This is string type since the default Id type of Micorsoft's IdentityUser is string.
-            </summary>
-        </member>
-        <member name="P:MSF.Core.BaseTransactionalEntity`1.CreatedOn">
-            <summary>
-            Created date, Automatically updated.
-            </summary>
-        </member>
-        <member name="P:MSF.Core.BaseTransactionalEntity`1.UpdatedBy">
-            <summary>
-            Updated by user. This is string type since the default Id type of Micorsoft's IdentityUser is string.
-            </summary>
-        </member>
-        <member name="P:MSF.Core.BaseTransactionalEntity`1.UpdatedOn">
-            <summary>
-            Last Updated date, Automatically updated.
-            </summary>
-        </member>
-        <member name="T:MSF.Core.UnitOfWork">
+        <member name="T:Core.Data.UnitOfWork">
             <summary>
             Handler for manage the Commits.
             </summary>
         </member>
-        <member name="M:MSF.Core.UnitOfWork.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+        <member name="M:Core.Data.UnitOfWork.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
             <summary>
             Initialize.
             </summary>

@@ -1,14 +1,14 @@
 ﻿using System;
 
-namespace MSF.Core
+namespace Core.Data
 {
     /// <summary>
     /// Base Repository with CRUD operations.
     /// </summary>
-    public interface IBaseRepository<tEntity, tType> :
+    public interface IRepository<tEntity, tType> :
         IReadRepository<tEntity, tType>,
         IWriteRepository<tEntity, tType>
-           where tEntity : class, IBaseEntity<tType>
+           where tEntity : class, IEntity<tType>
            where tType : struct, IEquatable<tType>, IComparable<tType>
     { }
 }

@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace MSF.Core
+namespace Core.Data
 {
     /// <summary>
     /// Manage commit for each entity.

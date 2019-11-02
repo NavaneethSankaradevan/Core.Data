@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace MSF.Core
+namespace Core.Data
 {
     /// <summary>
     /// Base Entity Model.
     /// </summary>
-    public interface IBaseEntity<T>
+    public interface IEntity<T>
         where T : struct, IEquatable<T>, IComparable<T>
     {
 
