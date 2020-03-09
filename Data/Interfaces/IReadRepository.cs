@@ -33,7 +33,7 @@ namespace Core.Data
         /// <param name="PageNo">Current page number</param>
         /// <param name="PageCount">Number of entities need to fetch</param>
         /// <returns></returns>
-        Task<List<tEntity>> GetAllPageData(Expression<Func<tEntity, bool>> OrderBy, int PageNo = 0, int PageCount = 20);
+        Task<List<tEntity>> GetAllPageData<tOrderBy>(Expression<Func<tEntity, tOrderBy>> OrderBy, int PageNo = 0, int PageCount = 20);
 
         /// <summary>
         /// Find entities based on condition
@@ -50,6 +50,6 @@ namespace Core.Data
         /// <param name="PageNo">Current page number</param>
         /// <param name="PageCount">Number of entities need to fetch</param>
         /// <returns></returns>
-        Task<List<tEntity>> FindByWithPagingAsync(Expression<Func<tEntity, bool>> predicate, Expression<Func<tEntity, bool>> OrderBy, int PageNo = 0, int PageCount = 20);
+        Task<List<tEntity>> FindByWithPagingAsync<tOrderBy>(Expression<Func<tEntity, bool>> predicate, Expression<Func<tEntity, tOrderBy>> OrderBy, int PageNo = 0, int PageCount = 20);
     }
 }

@@ -4,7 +4,14 @@
     <TargetFrameworks>netcoreapp2.0;</TargetFrameworks>
     <AssemblyName>Core.Data</AssemblyName>
     <RootNamespace>Core.Data</RootNamespace>
-    <Version>1.0.1</Version>
+    <Version>1.0.0</Version>
+    <Description>.Net Core utility for Data Access Framework with Generic Repository pattern.
+
+Refer : https://www.c-sharpcorner.com/article/how-to-create-industry-standard-net-core-crud-api-quickly/</Description>
+    <Copyright>Copyright ©2019 MSFullStackers</Copyright>
+    <PackageReleaseNotes>.Net Core utility for Data Access Framework with Generic Repository pattern.</PackageReleaseNotes>
+    <Authors>Navaneeth Sankaradevan, Vignesh Sankaradevan</Authors>
+    <Company>MSFullStackers</Company>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp2.0|AnyCPU'">

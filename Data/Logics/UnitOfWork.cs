@@ -38,7 +38,6 @@ namespace Core.Data
 
         async Task<int> IUnitOfWork.CommitAsync()
         {
-            List<string> exceptions = new List<string>();
             try
             {
                 return await _dbContext.SaveChangesAsync();

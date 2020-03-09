@@ -1,6 +1,6 @@
 http://learnings.MSFullStackers.com/index.php/2018/07/11/rs2-core/
 
-# MFS.Core
+# Core.Data
 
 * .Net Core Data Access Framework with Generic Repository pattern.
 
@@ -16,12 +16,12 @@ public class Country : BaseEntity<int>
 {
 }
 
-public class Person : BaseEntity<long>
+public class Product : BaseEntity<long>
 {
 }
 
 ### Transaction entities:
-public class TaskItem : TranBaseEntity<long>
+public class TaskItem : BaseEntityTrackable<long>
 {
 }
 
@@ -36,17 +36,13 @@ public interface IProductRepository : IBaseRepository<Product, long>
 
 public class ProductRepository : BaseRepository<Product, long>, IProductRepository
 {
-    public ProductRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
-    {
-    }
-	protected override IQueryable<Product> GetEntitySet(bool includeDeleted = false)
-	{		
-        if(!includeDelete)
-        {
-            return Entity.Include(e => e.Category).Where(p => !p.InActive);
-        }
-        
-		return Entity.Include(e => e.Category)
+	public ProductRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
+	{
+	}
+
+	protected override IQueryable<Product> GetEntitySet(bool incluedeDelete = true)
+	{			
+		return Entity.Include(e => e.Category).Where(p => !incluedeDelete || !p.InActive);
 	}
 }
 

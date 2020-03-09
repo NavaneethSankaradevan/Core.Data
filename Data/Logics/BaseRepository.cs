@@ -24,7 +24,7 @@ namespace Core.Data
         /// </summary>
         protected DbContext DataContext { get; private set; }
 
-        private ILogger _logger = null;
+        private readonly ILogger _logger = null;
 
         /// <summary>
         /// Current Entity.
@@ -108,8 +108,8 @@ namespace Core.Data
 
         }
 
-        async Task<List<tEntity>> IReadRepository<tEntity, tType>.GetAllPageData(
-            Expression<Func<tEntity, bool>> OrderBy, int PageNo, int PageCount)
+        async Task<List<tEntity>> IReadRepository<tEntity, tType>.GetAllPageData<tOrderBy>(
+            Expression<Func<tEntity, tOrderBy>> OrderBy, int PageNo, int PageCount)
         {
             try
             {
@@ -137,9 +137,9 @@ namespace Core.Data
             }
         }
 
-        async Task<List<tEntity>> IReadRepository<tEntity, tType>.FindByWithPagingAsync(
+        async Task<List<tEntity>> IReadRepository<tEntity, tType>.FindByWithPagingAsync<tOrderBy>(
             Expression<Func<tEntity, bool>> predicate,
-            Expression<Func<tEntity, bool>> OrderBy,
+            Expression<Func<tEntity, tOrderBy>> OrderBy,
             int PageNo, int PageCount)
         {
             try
