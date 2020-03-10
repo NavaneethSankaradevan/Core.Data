@@ -158,12 +158,12 @@ namespace Core.Data
 
         #region IWriteRepository Implementations
 
-        async Task<tType> IWriteRepository<tEntity, tType>.SaveAsync(tEntity entity)
+        async Task<tEntity> IWriteRepository<tEntity, tType>.SaveAsync(tEntity entity)
         {
             return await SaveAsync(entity, string.Empty);
         }
 
-        async Task<tType> IWriteRepository<tEntity, tType>.SaveAsync(tEntity entity, string user)
+        async Task<tEntity> IWriteRepository<tEntity, tType>.SaveAsync(tEntity entity, string user)
         {
             return await SaveAsync(entity, user);
         }
@@ -200,7 +200,7 @@ namespace Core.Data
 
         #region Private Method
 
-        private async Task<tType> SaveAsync(tEntity entity, string user)
+        private async Task<tEntity> SaveAsync(tEntity entity, string user)
         {
             // Update last modified by.
             UpdateAuditDetails(entity, user);
@@ -212,14 +212,21 @@ namespace Core.Data
 
             if (isExist)
             {
-
                 DataContext.Entry(entity).State = EntityState.Modified;
             }
             else
             {
-                await _dbSet.AddAsync(entity);
+                try
+                {
+                    await _dbSet.AddAsync(entity);
+                }
+                catch
+                {   // Because in latest EF Core, AddAsync is not working.
+                    _dbSet.Add(entity);
+
+                }
             }
-            return entity.ID;
+            return await Task.FromResult(entity);
         }
 
         private async Task SoftDelete(tType ID, string user)
@@ -242,6 +249,7 @@ namespace Core.Data
             {
                 throw new ArgumentException($"{ID} - Not Found");
             }
+            await Task.Yield();
         }
 
         /// <summary>
@@ -263,7 +271,6 @@ namespace Core.Data
                     (entity as BaseEntityTrackable<tType>).CreatedOn = DateTime.UtcNow;
                     (entity as BaseEntityTrackable<tType>).CreatedBy = user;
                 }
-
             }
         }
 

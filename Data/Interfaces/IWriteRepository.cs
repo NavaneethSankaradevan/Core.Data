@@ -16,13 +16,13 @@ namespace Core.Data
         /// Create new entity or Update existing entity.
         /// </summary>
         /// <returns></returns>
-        Task<tType> SaveAsync(tEntity entity);
+        Task<tEntity> SaveAsync(tEntity entity);
 
         /// <summary>
         /// Create new entity or Update existing entity with user info.
         /// </summary>
         /// <returns></returns>
-        Task<tType> SaveAsync(tEntity entity, string user);
+        Task<tEntity> SaveAsync(tEntity entity, string user);
 
         /// <summary>
         /// Delete the entity from Database.
