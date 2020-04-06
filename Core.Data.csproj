@@ -4,14 +4,17 @@
     <TargetFrameworks>netcoreapp2.0;</TargetFrameworks>
     <AssemblyName>Core.Data</AssemblyName>
     <RootNamespace>Core.Data</RootNamespace>
-    <Version>1.2.0</Version>
+    <Version>2.1.0</Version>
     <Description>.Net Core utility for Data Access Framework with Generic Repository pattern.
 
 Refer : https://www.c-sharpcorner.com/article/how-to-create-industry-standard-net-core-crud-api-quickly/</Description>
     <Copyright>Copyright ©2019 MSFullStackers</Copyright>
-    <PackageReleaseNotes>.Net Core utility for Data Access Framework with Generic Repository pattern.</PackageReleaseNotes>
+    <PackageReleaseNotes>2.1.0 : Added Queryable option for get
+
+.Net Core Entity Framework utility for Data Access Framework with Generic Repository pattern.</PackageReleaseNotes>
     <Authors>Navaneeth Sankaradevan, Vignesh Sankaradevan</Authors>
     <Company>MSFullStackers</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp2.0|AnyCPU'">

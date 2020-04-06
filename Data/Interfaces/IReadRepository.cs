@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -51,5 +52,8 @@ namespace Core.Data
         /// <param name="PageCount">Number of entities need to fetch</param>
         /// <returns></returns>
         Task<List<tEntity>> FindByWithPagingAsync<tOrderBy>(Expression<Func<tEntity, bool>> predicate, Expression<Func<tEntity, tOrderBy>> OrderBy, int PageNo = 0, int PageCount = 20);
+
+        IQueryable<tEntity> GetEntities();
+
     }
 }

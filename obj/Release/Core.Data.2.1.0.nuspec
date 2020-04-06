@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Core.Data</id>
+    <version>2.1.0</version>
+    <authors>Navaneeth Sankaradevan, Vignesh Sankaradevan</authors>
+    <owners>Navaneeth Sankaradevan, Vignesh Sankaradevan</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.Net Core utility for Data Access Framework with Generic Repository pattern.
+
+Refer : https://www.c-sharpcorner.com/article/how-to-create-industry-standard-net-core-crud-api-quickly/</description>
+    <releaseNotes>2.1.0 : Added Queryable option for get
+
+.Net Core Entity Framework utility for Data Access Framework with Generic Repository pattern.</releaseNotes>
+    <copyright>Copyright ©2019 MSFullStackers</copyright>
+    <dependencies>
+      <group targetFramework=".NETCoreApp2.0">
+        <dependency id="Microsoft.EntityFrameworkCore" version="2.0.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\Navaneeth\6.Personnal\Projects\MSF.Core\MSF.Core\bin\Release\netcoreapp2.0\Core.Data.dll" target="lib\netcoreapp2.0\Core.Data.dll" />
+  </files>
+</package>

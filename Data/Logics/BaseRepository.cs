@@ -154,6 +154,11 @@ namespace Core.Data
             }
         }
 
+        IQueryable<tEntity> IReadRepository<tEntity, tType>.GetEntities()
+        {
+            return GetEntitySet().AsQueryable();
+        }
+
         #endregion
 
         #region IWriteRepository Implementations
